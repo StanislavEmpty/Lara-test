@@ -1,9 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/buyProduct', [App\Http\Controllers\HomeController::class, 'buyProduct'])->name('buyProduct');
+Route::get('/cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
+Route::post('/removeProductFromCart', [App\Http\Controllers\HomeController::class, 'removeProductFromCart'])->name('removeProductFromCart');
 
 Route::get('/welcome', function () {
     return view('welcome');
